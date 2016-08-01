@@ -1,0 +1,21 @@
+---
+
+- block:
+
+  - name: install firewalld
+    package: name=firewalld state=present
+
+  - name: ensure firewalld service is started
+    service: name=firewalld state=started enabled=yes
+
+  - name: configure firewalld services
+    firewalld: service={{ item.key }} permanent={{ item.value.permanant | default(True) }} state={{ item.value.enabled | default('enabled') }} zone={{ item.value.zone | default('public') }}
+    with_dict: "{{ __firewalld_services | combine(firewalld_services) }}"
+    notify: reload firewalld
+
+  - name: update firewalld ports
+    firewalld: port={{ item.value.port }}/{{ item.value.protocol }} permanent={{ item.value.permanant | default(True) }} state={{ item.value.enabled | default('enabled') }} zone={{ item.value.zone | default('public') }}
+    with_dict: "{{ firewalld_ports }}"
+    notify: reload firewalld
+
+  when: firewalld_enabled == True

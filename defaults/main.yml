@@ -1,0 +1,13 @@
+---
+firewalld_enabled: True
+
+firewalld_reload: True
+
+__firewalld_services:
+  ssh:
+    permanant: true
+    state: enabled
+
+firewalld_services: {}
+
+firewalld_ports: {}
