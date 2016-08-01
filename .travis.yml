@@ -9,8 +9,7 @@ sudo: false
 addons:
   apt:
     packages:
-      - python-pip
-      - firewalld
+    - python-pip
 
 install:
   # Install ansible
