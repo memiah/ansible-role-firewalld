@@ -1,7 +1,7 @@
 ---
 firewalld_enabled: True
 
-firewalld_reload: True
+firewalld_restart: True
 
 __firewalld_services:
   ssh:

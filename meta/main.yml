@@ -11,7 +11,6 @@ galaxy_info:
     - 7
   galaxy_tags:
     - firewall
-    - firewall
     - ports
     - services
 dependencies: []

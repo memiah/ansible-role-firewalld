@@ -1,6 +1,6 @@
 ---
-- name: reload firewalld
+- name: restart firewalld
   service:
     name: firewalld
-    state: reloaded
-  when: firewalld_reload == True
+    state: restarted
+  when: firewalld_restart == True
