@@ -63,13 +63,13 @@ Example Playbook
       https:
         state: enabled
         
-     firewalld_ports:
-       mysql:
-         port: 3306
-         protocol: tcp
-         state: enabled
-         zone: public
-         permanent: true
+    firewalld_ports:
+        mysql:
+          port: 3306
+          protocol: tcp
+          state: enabled
+          zone: public
+          permanent: true
 
 License
 -------
